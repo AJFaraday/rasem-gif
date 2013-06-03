@@ -17,7 +17,10 @@ set_width 600
 #colours = ['#ff0000','#ffff00','#00ff00','#00ffff','#0000ff','#ff00ff']
 
 #Goth Colours
-colours = ['#880000','#000000','#aa0000','#440000','#884444']
+#colours = ['#880000','#000000','#aa0000','#440000','#884444']
+
+#monochrome
+colours = ['#000000','#222222','#444444','#666666','#888888','#aaaaaa','#888888','#666666','#444444','#222222']
 
 (0..ARGV[1].to_i).to_a.each do |x|
   colour_index = ((x-ARGV[1].to_i)%colours.length)
