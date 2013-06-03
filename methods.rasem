@@ -1,0 +1,27 @@
+# re-usable method
+
+def make_circle(number,colour)
+  offset = number*1
+  position = number+(300-offset)
+  radius = ((ARGV[1].to_i*10)+10)- (number*10)
+
+  puts "circle #{position},#{position},#{radius} :fill => '#{colour}'"
+  circle position,position,radius, :fill => colour
+end 
+
+# The actual script
+set_height 600
+set_width 600
+
+#Rainbow Colours
+#colours = ['#ff0000','#ffff00','#00ff00','#00ffff','#0000ff','#ff00ff']
+
+#Goth Colours
+colours = ['#880000','#000000','#aa0000','#440000','#884444']
+
+(0..ARGV[1].to_i).to_a.each do |x|
+  colour_index = ((x-ARGV[1].to_i)%colours.length)
+  colour = colours[colour_index]
+  make_circle(x,colour)
+end
+
