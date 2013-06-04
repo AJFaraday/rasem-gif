@@ -9,7 +9,7 @@
 if ARGV[0] and ARGV[0].to_i > 0
   ITERATIONS = ARGV[0].to_i
 else
-  ITERATIONS = 600
+  ITERATIONS = 300
 end
 
 if ARGV[1] and ARGV[1].to_i > 0

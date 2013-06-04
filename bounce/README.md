@@ -3,13 +3,18 @@ Concentric Circles
 
 This creates a series of concentric circles, enlarging in size, following a sequence of colours.
 
-As with all gif scripts:
+To use:
 
 * ruby make\_gif.rb
-* open result.gif
+* open results/current.gif
 
-This is currently a rough sketch, proving the concept to myself. But it has the template for producing an iterative set of SVG files and converting these to an animated gif so you can see the process unfolding. In short:
+ball.rasem is just taking an X and Y axis as arguments and drawing a single circle at those co-ordinates. Only it has a 'back-and-forth' algorithm for the X axis, so this can just keep increasing with each generation. 
 
-* methods.rasem will use the method make\_circle the number of times from the first argument it has (e.g. `rasem methods.rasem 4` will run make\_circle 4 times) and output it to methods.svg
-* make\_gif.rb runs this 29 times with the arguments 1 to 29, and moves the results to sequential files in a folder called images (001.svg to 029.svg)
-* next it runs convert, from imagemagick, to stitch these together as a gif
+make\_gif.rb takes two arguments:
+
+1. Number of iterations (of position calculation)
+2. Grain rate (if 2, every 2 position calculations will be used to generate a gif) 
+
+Higher grain rates can be used to quickly generate a file which gives you the shape of longer gifs without taking so long to process.
+
+In make\_gif.rb, the y position lowers by an amount which increases by a pixel each iteration, and when it reaches the bottom of the image it's speed is inverted, so it goes up as fast as it goes down. Then slows by that same pixel incremented amount, and lowers by it again. The effect is a ball speeding up towards the ground, bouncing, slowing and falling again. 
