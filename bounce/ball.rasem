@@ -1,0 +1,31 @@
+# re-usable method
+
+def make_circle(x,y,colour='black')
+  x_position = x
+  y_position = y
+  radius = 20
+
+  puts "circle #{x_position},#{y_position},#{radius} :fill => '#{colour}'"
+  circle x_position,y_position,radius, :fill => colour
+end 
+
+# The actual script
+set_height 600
+set_width 600
+
+x = ARGV[1].to_f
+y = ARGV[2].to_f
+
+puts "#{x} #{y}"
+
+if ((x.to_i/600)%2) == 0
+  x = x % 600.0
+else
+  x = ((x%600)*-1)+600
+end
+
+
+puts "#{x} #{y}"
+
+make_circle(x,y)
+
